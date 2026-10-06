@@ -207,27 +207,27 @@
         <div class="lg:col-span-7 space-y-6 text-start">
           
           <!-- AUTHORIZED PARTNER FLOATING BADGE -->
-          <div x-show="cms.visibility.heroBadge" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs sm:text-sm font-semibold shadow-[0_0_20px_rgba(6,182,212,0.15)] animate-pulse">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#10b981]"></span>
+          <div x-show="cms.visibility.heroBadge" data-aos="fade-down" data-aos-duration="600" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs sm:text-sm font-semibold shadow-[0_0_20px_rgba(6,182,212,0.15)] animate-float-slow">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 beacon-dot shadow-[0_0_8px_#10b981]"></span>
             <span x-text="t('hero.badge')"></span>
           </div>
 
           <!-- HEADLINE WITH VIBRANT GRADIENT -->
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.15]">
+          <h1 data-aos="fade-up" data-aos-duration="700" class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.15]">
             <span class="block" x-text="t('hero.title_p1')"></span>
             <span class="block bg-gradient-to-r from-cyan-400 via-emerald-300 to-cyan-200 bg-clip-text text-transparent text-glow-cyan" x-text="t('hero.title_p2')"></span>
           </h1>
 
           <!-- SUBTITLE -->
-          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal" x-text="t('hero.subtitle')"></p>
+          <p data-aos="fade-up" data-aos-duration="700" data-aos-delay="100" class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal" x-text="t('hero.subtitle')"></p>
 
           <!-- DUAL CTA BUTTONS -->
-          <div class="flex flex-wrap items-center gap-4 pt-2">
+          <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="150" class="flex flex-wrap items-center gap-4 pt-2">
             <a 
               x-show="cms.buttons.heroPrimary.visible"
               @click.prevent="scrollTo('contact')" 
               :href="cms.buttons.heroPrimary.target" 
-              class="px-7 py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 text-slate-950 font-black text-sm sm:text-base shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.7)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center gap-2 cursor-pointer">
+              class="px-7 py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 text-slate-950 font-black text-sm sm:text-base shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.7)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center gap-2 cursor-pointer glow-pulse-subtle">
               <i class="fa-solid fa-headset text-slate-900"></i>
               <span x-text="cms.buttons.heroPrimary[lang] || t('hero.cta_primary')"></span>
             </a>
@@ -244,20 +244,20 @@
           </div>
 
           <!-- LIVE STATS GRID -->
-          <div x-show="cms.visibility.heroStats" class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-6 border-t border-slate-800/80">
-            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+          <div x-show="cms.visibility.heroStats" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200" class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-6 border-t border-slate-800/80">
+            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 interactive-lift">
               <div class="text-2xl sm:text-3xl font-black font-mono text-cyan-400" x-text="cms.heroStats.stat1.num"></div>
               <div class="text-xs text-slate-400 font-medium mt-1" x-text="cms.heroStats.stat1['label_' + lang]"></div>
             </div>
-            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 interactive-lift">
               <div class="text-2xl sm:text-3xl font-black font-mono text-emerald-400" x-text="cms.heroStats.stat2.num"></div>
               <div class="text-xs text-slate-400 font-medium mt-1" x-text="cms.heroStats.stat2['label_' + lang]"></div>
             </div>
-            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 interactive-lift">
               <div class="text-2xl sm:text-3xl font-black font-mono text-cyan-300" x-text="cms.heroStats.stat3.num"></div>
               <div class="text-xs text-slate-400 font-medium mt-1" x-text="cms.heroStats.stat3['label_' + lang]"></div>
             </div>
-            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 interactive-lift">
               <div class="text-2xl sm:text-3xl font-black font-mono text-emerald-300" x-text="cms.heroStats.stat4.num"></div>
               <div class="text-xs text-slate-400 font-medium mt-1" x-text="cms.heroStats.stat4['label_' + lang]"></div>
             </div>
@@ -266,7 +266,7 @@
         </div>
 
         <!-- HERO VISUAL: CYBER GLASS CONTAINER -->
-        <div class="lg:col-span-5 relative">
+        <div class="lg:col-span-5 relative" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
           
           <!-- Neon Glow Border Around Container -->
           <div class="relative rounded-3xl p-2 bg-gradient-to-b from-cyan-500/30 via-slate-800/60 to-emerald-500/20 shadow-[0_0_40px_rgba(6,182,212,0.2)]">
@@ -282,8 +282,8 @@
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/30 pointer-events-none"></div>
 
               <!-- Top Badge -->
-              <div class="absolute top-4 start-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/85 backdrop-blur-md border border-cyan-500/40 text-xs font-bold text-white shadow-lg">
-                <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+              <div class="absolute top-4 start-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/85 backdrop-blur-md border border-cyan-500/40 text-xs font-bold text-white shadow-lg animate-float-slow">
+                <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 beacon-dot"></span>
                 <span x-text="cms.imageBadges?.heroTop?.[lang] || 'Global Hi-Tech Certified Crew'"></span>
               </div>
 
@@ -330,7 +330,7 @@
           </div>
 
           <!-- Decorative Floating Corner Card -->
-          <div class="hidden sm:flex absolute -bottom-6 -start-6 p-4 rounded-2xl bg-slate-900/95 border border-cyan-500/30 shadow-2xl backdrop-blur-xl z-30 items-center gap-3">
+          <div class="hidden sm:flex absolute -bottom-6 -start-6 p-4 rounded-2xl bg-slate-900/95 border border-cyan-500/30 shadow-2xl backdrop-blur-xl z-30 items-center gap-3 animate-float-delayed">
             <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-cyan-500 to-emerald-400 flex items-center justify-center text-slate-950 text-xl font-bold">
               <i class="fa-solid fa-shield-halved"></i>
             </div>
@@ -353,7 +353,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
         
-        <div class="flex items-center gap-3.5 p-3">
+        <div data-aos="fade-up" data-aos-delay="50" class="interactive-lift flex items-center gap-3.5 p-3 rounded-2xl bg-slate-900/30 border border-transparent hover:border-cyan-500/30">
           <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl shrink-0">
             <i class="fa-solid fa-industry"></i>
           </div>
@@ -363,7 +363,7 @@
           </div>
         </div>
 
-        <div class="flex items-center gap-3.5 p-3">
+        <div data-aos="fade-up" data-aos-delay="100" class="interactive-lift flex items-center gap-3.5 p-3 rounded-2xl bg-slate-900/30 border border-transparent hover:border-emerald-500/30">
           <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl shrink-0">
             <i class="fa-solid fa-bolt-lightning"></i>
           </div>
@@ -373,7 +373,7 @@
           </div>
         </div>
 
-        <div class="flex items-center gap-3.5 p-3">
+        <div data-aos="fade-up" data-aos-delay="150" class="interactive-lift flex items-center gap-3.5 p-3 rounded-2xl bg-slate-900/30 border border-transparent hover:border-cyan-500/30">
           <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl shrink-0">
             <i class="fa-solid fa-certificate"></i>
           </div>
@@ -383,7 +383,7 @@
           </div>
         </div>
 
-        <div class="flex items-center gap-3.5 p-3">
+        <div data-aos="fade-up" data-aos-delay="200" class="interactive-lift flex items-center gap-3.5 p-3 rounded-2xl bg-slate-900/30 border border-transparent hover:border-emerald-500/30">
           <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl shrink-0">
             <i class="fa-solid fa-user-gear"></i>
           </div>
@@ -404,7 +404,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      <div data-aos="fade-up" class="text-center max-w-3xl mx-auto mb-16 space-y-4">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
           <i class="fa-solid fa-layer-group"></i>
           <span x-text="t('services.tag')"></span>
@@ -417,7 +417,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
         <!-- PILLAR 1: ARCHITECTURAL WINDOW FILMS -->
-        <div x-show="cms.visibility.pillar1" class="glass-card-hover rounded-3xl overflow-hidden flex flex-col group border border-slate-800">
+        <div x-show="cms.visibility.pillar1" data-aos="fade-up" data-aos-delay="100" class="glass-card-hover rounded-3xl overflow-hidden flex flex-col group border border-slate-800">
           <div class="relative h-60 overflow-hidden">
             <img :src="cms.images.pillar1 || 'assets/images/arch-glass-villa.jpg'" alt="Architectural Window Films" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
@@ -469,7 +469,7 @@
         </div>
 
         <!-- PILLAR 2: LUXURY SURFACE PROTECTION (MARBLE & WOOD) -->
-        <div x-show="cms.visibility.pillar2" class="glass-card-hover rounded-3xl overflow-hidden flex flex-col group border border-slate-800">
+        <div x-show="cms.visibility.pillar2" data-aos="fade-up" data-aos-delay="200" class="glass-card-hover rounded-3xl overflow-hidden flex flex-col group border border-slate-800">
           <div class="relative h-60 overflow-hidden">
             <img :src="cms.images.pillar2 || 'assets/images/marble-surface.jpg'" alt="Luxury Surface Protection" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
@@ -521,7 +521,7 @@
         </div>
 
         <!-- PILLAR 3: AUTOMOTIVE PPF & TINT DISTRIBUTION -->
-        <div x-show="cms.visibility.pillar3" class="glass-card-hover rounded-3xl overflow-hidden flex flex-col group border border-slate-800">
+        <div x-show="cms.visibility.pillar3" data-aos="fade-up" data-aos-delay="300" class="glass-card-hover rounded-3xl overflow-hidden flex flex-col group border border-slate-800">
           <div class="relative h-60 overflow-hidden">
             <img :src="cms.images.pillar3 || 'assets/images/supercar-ppf.jpg'" alt="Automotive PPF Wholesale Distribution" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
@@ -584,7 +584,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      <div data-aos="fade-up" class="text-center max-w-3xl mx-auto mb-16 space-y-4">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
           <i class="fa-solid fa-sliders"></i>
           <span x-text="t('simulator.tag')"></span>
@@ -594,7 +594,7 @@
       </div>
 
       <!-- Simulator Interactive Card -->
-      <div class="max-w-4xl mx-auto glass-panel p-6 sm:p-10 rounded-3xl border border-cyan-500/20 shadow-[0_0_35px_rgba(6,182,212,0.1)]">
+      <div data-aos="fade-up" data-aos-delay="150" class="max-w-4xl mx-auto glass-panel p-6 sm:p-10 rounded-3xl border border-cyan-500/20 shadow-[0_0_35px_rgba(6,182,212,0.1)]">
         
         <!-- Slider Control Bar -->
         <div class="space-y-4 pb-8 border-b border-slate-800">
@@ -695,7 +695,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      <div data-aos="fade-up" class="text-center max-w-3xl mx-auto mb-16 space-y-4">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
           <i class="fa-solid fa-microchip"></i>
           <span x-text="t('tech_standards.tag')"></span>
@@ -707,7 +707,7 @@
       <!-- 4 Pillars of Technical Superiority -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
         
-        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all space-y-3">
+        <div data-aos="fade-up" data-aos-delay="100" class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all space-y-3 interactive-lift">
           <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl">
             <i class="fa-solid fa-arrows-split-up-and-left"></i>
           </div>
@@ -715,7 +715,7 @@
           <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" x-text="t('tech_standards.c1_desc')"></p>
         </div>
 
-        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition-all space-y-3">
+        <div data-aos="fade-up" data-aos-delay="200" class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition-all space-y-3 interactive-lift">
           <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl">
             <i class="fa-solid fa-atom"></i>
           </div>
@@ -723,7 +723,7 @@
           <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" x-text="t('tech_standards.c2_desc')"></p>
         </div>
 
-        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all space-y-3">
+        <div data-aos="fade-up" data-aos-delay="300" class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all space-y-3 interactive-lift">
           <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl">
             <i class="fa-solid fa-eye"></i>
           </div>
@@ -731,7 +731,7 @@
           <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" x-text="t('tech_standards.c3_desc')"></p>
         </div>
 
-        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition-all space-y-3">
+        <div data-aos="fade-up" data-aos-delay="400" class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition-all space-y-3 interactive-lift">
           <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl">
             <i class="fa-solid fa-shield-virus"></i>
           </div>
@@ -742,7 +742,7 @@
       </div>
 
       <!-- TECHNICAL COMPARISON TABLE -->
-      <div x-show="cms.visibility.comparisonTable" class="glass-panel rounded-3xl p-6 sm:p-8 border border-slate-800 overflow-x-auto">
+      <div x-show="cms.visibility.comparisonTable" data-aos="fade-up" data-aos-delay="150" class="glass-panel rounded-3xl p-6 sm:p-8 border border-slate-800 overflow-x-auto">
         <div class="mb-6">
           <h3 class="text-xl sm:text-2xl font-bold text-white" x-text="t('comparison.title')"></h3>
           <p class="text-xs sm:text-sm text-slate-400 mt-1" x-text="t('comparison.subtitle')"></p>
@@ -803,7 +803,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+      <div data-aos="fade-up" class="text-center max-w-3xl mx-auto mb-12 space-y-4">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
           <i class="fa-solid fa-camera"></i>
           <span x-text="t('gallery.tag')"></span>
@@ -813,7 +813,7 @@
       </div>
 
       <!-- Filter Buttons -->
-      <div class="flex flex-wrap justify-center gap-2 mb-12">
+      <div data-aos="fade-up" data-aos-delay="100" class="flex flex-wrap justify-center gap-2 mb-12">
         <button 
           @click="galleryFilter = 'all'" 
           :class="galleryFilter === 'all' ? 'bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20' : 'bg-slate-900 text-slate-300 hover:text-white border border-slate-800'"
@@ -844,7 +844,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- PROJECT 1: REAL UPLOADED INSTALLATION -->
-        <div x-show="galleryFilter === 'all' || galleryFilter === 'arch'" class="glass-card-hover rounded-3xl overflow-hidden group border border-slate-800 flex flex-col">
+        <div x-show="galleryFilter === 'all' || galleryFilter === 'arch'" data-aos="fade-up" data-aos-delay="100" class="glass-card-hover rounded-3xl overflow-hidden group border border-slate-800 flex flex-col">
           <div class="relative h-72 sm:h-80 overflow-hidden cursor-pointer" @click="openLightbox(cms.images.gallery1 || 'assets/images/installation-site-real.jpg', 'gallery.item1_title', 'gallery.item1_desc')">
             <img :src="cms.images.gallery1 || 'assets/images/installation-site-real.jpg'" alt="Le Bistro Commercial Facade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
@@ -871,7 +871,7 @@
         </div>
 
         <!-- PROJECT 2: ITALIAN MARBLE PROTECTION -->
-        <div x-show="galleryFilter === 'all' || galleryFilter === 'surface'" class="glass-card-hover rounded-3xl overflow-hidden group border border-slate-800 flex flex-col">
+        <div x-show="galleryFilter === 'all' || galleryFilter === 'surface'" data-aos="fade-up" data-aos-delay="200" class="glass-card-hover rounded-3xl overflow-hidden group border border-slate-800 flex flex-col">
           <div class="relative h-72 sm:h-80 overflow-hidden cursor-pointer" @click="openLightbox(cms.images.gallery2 || 'assets/images/marble-surface.jpg', 'gallery.item2_title', 'gallery.item2_desc')">
             <img :src="cms.images.gallery2 || 'assets/images/marble-surface.jpg'" alt="Luxury Marble Protection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
@@ -897,7 +897,7 @@
         </div>
 
         <!-- PROJECT 3: LUXURY VILLA ARCHITECTURAL GLAZING -->
-        <div x-show="galleryFilter === 'all' || galleryFilter === 'arch'" class="glass-card-hover rounded-3xl overflow-hidden group border border-slate-800 flex flex-col">
+        <div x-show="galleryFilter === 'all' || galleryFilter === 'arch'" data-aos="fade-up" data-aos-delay="300" class="glass-card-hover rounded-3xl overflow-hidden group border border-slate-800 flex flex-col">
           <div class="relative h-72 sm:h-80 overflow-hidden cursor-pointer" @click="openLightbox(cms.images.gallery3 || 'assets/images/arch-glass-villa.jpg', 'gallery.item3_title', 'gallery.item3_desc')">
             <img :src="cms.images.gallery3 || 'assets/images/arch-glass-villa.jpg'" alt="Villa Solar Glazing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
@@ -923,7 +923,7 @@
         </div>
 
         <!-- PROJECT 4: AUTOMOTIVE SUPERCAR PPF -->
-        <div x-show="galleryFilter === 'all' || galleryFilter === 'auto'" class="glass-card-hover rounded-3xl overflow-hidden group border border-slate-800 flex flex-col">
+        <div x-show="galleryFilter === 'all' || galleryFilter === 'auto'" data-aos="fade-up" data-aos-delay="400" class="glass-card-hover rounded-3xl overflow-hidden group border border-slate-800 flex flex-col">
           <div class="relative h-72 sm:h-80 overflow-hidden cursor-pointer" @click="openLightbox(cms.images.gallery4 || 'assets/images/supercar-ppf.jpg', 'gallery.item4_title', 'gallery.item4_desc')">
             <img :src="cms.images.gallery4 || 'assets/images/supercar-ppf.jpg'" alt="Supercar PPF" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
@@ -960,7 +960,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      <div data-aos="fade-up" class="text-center max-w-3xl mx-auto mb-16 space-y-4">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
           <i class="fa-solid fa-headset"></i>
           <span x-text="t('contact.tag')"></span>
@@ -973,7 +973,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- CARD 1: DIRECT PHONE CALL -->
-        <div class="glass-card-hover p-8 rounded-3xl border border-slate-800 flex flex-col justify-between space-y-6 group relative overflow-hidden">
+        <div data-aos="fade-up" data-aos-delay="100" class="glass-card-hover p-8 rounded-3xl border border-slate-800 flex flex-col justify-between space-y-6 group relative overflow-hidden">
           <div class="absolute -top-12 -end-12 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all"></div>
           
           <div class="space-y-4 relative z-10">
@@ -982,7 +982,7 @@
                 <i class="fa-solid fa-phone"></i>
               </div>
               <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold">
-                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                <span class="w-2 h-2 rounded-full bg-cyan-400 beacon-dot"></span>
                 <span x-text="t('contact.call_badge')"></span>
               </span>
             </div>
@@ -1004,7 +1004,7 @@
         </div>
 
         <!-- CARD 2: DIRECT WHATSAPP ADVISORY -->
-        <div class="glass-card-hover p-8 rounded-3xl border border-slate-800 flex flex-col justify-between space-y-6 group relative overflow-hidden">
+        <div data-aos="fade-up" data-aos-delay="200" class="glass-card-hover p-8 rounded-3xl border border-slate-800 flex flex-col justify-between space-y-6 group relative overflow-hidden">
           <div class="absolute -top-12 -end-12 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-all"></div>
 
           <div class="space-y-4 relative z-10">
@@ -1013,7 +1013,7 @@
                 <i class="fa-brands fa-whatsapp"></i>
               </div>
               <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="w-2 h-2 rounded-full bg-emerald-400 beacon-dot"></span>
                 <span x-text="t('contact.wa_badge')"></span>
               </span>
             </div>
@@ -1037,7 +1037,7 @@
         </div>
 
         <!-- CARD 3: CORPORATE EMAIL -->
-        <div class="glass-card-hover p-8 rounded-3xl border border-slate-800 flex flex-col justify-between space-y-6 group relative overflow-hidden md:col-span-2 lg:col-span-1">
+        <div data-aos="fade-up" data-aos-delay="300" class="glass-card-hover p-8 rounded-3xl border border-slate-800 flex flex-col justify-between space-y-6 group relative overflow-hidden md:col-span-2 lg:col-span-1">
           <div class="absolute -top-12 -end-12 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all"></div>
 
           <div class="space-y-4 relative z-10">
@@ -1070,7 +1070,7 @@
       </div>
 
       <!-- SCHEDULE & DISTRIBUTOR CREDENTIAL BANNER -->
-      <div class="mt-12 p-8 rounded-3xl bg-slate-900/60 border border-cyan-500/20 flex flex-col md:flex-row items-center justify-between gap-6 backdrop-blur-xl">
+      <div data-aos="fade-up" data-aos-delay="150" class="mt-12 p-8 rounded-3xl bg-slate-900/60 border border-cyan-500/20 flex flex-col md:flex-row items-center justify-between gap-6 backdrop-blur-xl">
         <div class="flex items-center gap-4">
           <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl shrink-0">
             <i class="fa-solid fa-clock"></i>
@@ -1184,7 +1184,7 @@
       target="_blank" 
       rel="noopener noreferrer" 
       title="WhatsApp" 
-      class="w-13 h-13 p-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center text-xl shadow-[0_0_20px_rgba(16,185,129,0.5)] hover:scale-110 active:scale-95 transition-all">
+      class="w-13 h-13 p-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center text-xl shadow-[0_0_20px_rgba(16,185,129,0.5)] hover:scale-110 active:scale-95 transition-all glow-pulse-subtle">
       <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -1192,7 +1192,7 @@
     <a 
       :href="'tel:' + cms.contacts.phone" 
       :title="'Call ' + cms.contacts.phone" 
-      class="w-13 h-13 p-3.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center justify-center text-xl shadow-[0_0_20px_rgba(6,182,212,0.5)] hover:scale-110 active:scale-95 transition-all">
+      class="w-13 h-13 p-3.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 flex items-center justify-center text-xl shadow-[0_0_20px_rgba(6,182,212,0.5)] hover:scale-110 active:scale-95 transition-all glow-pulse-subtle">
       <i class="fa-solid fa-phone"></i>
     </a>
   </div>
