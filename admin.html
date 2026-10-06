@@ -503,6 +503,25 @@
                     dir="ltr" 
                     class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-sm focus:outline-none focus:border-cyan-400">
                   <div class="text-[11px] text-slate-400 mt-1">المسار الافتراضي: <code class="text-cyan-400 font-mono">assets/images/installation-site-real.jpg</code></div>
+            <!-- Hero Image Badges (الشارات الموضوعة فوق صورة الهيرو) -->
+            <div class="pt-4 border-t border-slate-800 space-y-3">
+              <div class="flex items-center gap-2 text-cyan-400 font-bold text-xs sm:text-sm">
+                <i class="fa-solid fa-tag"></i>
+                <span>الشارات المعروضة فوق صورة الهيرو (Hero Image Badges):</span>
+              </div>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-300 mb-1">الشارة العلوية المتحركة (Top Pill Badge):</label>
+                  <input type="text" x-model="cms.imageBadges.heroTop[editLang]" :dir="editLang === 'ar' ? 'rtl' : 'ltr'" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-300 mb-1">وسم بطاقة الزاوية (Corner Distributor Tag):</label>
+                  <input type="text" x-model="cms.imageBadges.heroCornerTag[editLang]" :dir="editLang === 'ar' ? 'rtl' : 'ltr'" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-cyan-300">
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-[11px] font-bold text-slate-300 mb-1">اسم الموزع في الزاوية (Corner Distributor Name):</label>
+                  <input type="text" x-model="cms.imageBadges.heroCornerName[editLang]" :dir="editLang === 'ar' ? 'rtl' : 'ltr'" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white">
                 </div>
               </div>
             </div>
@@ -574,6 +593,12 @@
                     <input type="text" x-model="cms.images['pillar' + (idx + 1)]" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white font-mono">
                   </div>
                 </div>
+              </div>
+
+              <!-- Pillar Image Badge (الشارة المعروضة فوق صورة الركيزة) -->
+              <div class="pt-2 border-t border-slate-800">
+                <label class="block text-[11px] font-bold text-cyan-400 mb-1">الشارة المعروضة أسفل صورة الركيزة (Image Badge):</label>
+                <input type="text" x-model="cms.imageBadges['pillar' + (idx + 1)][editLang]" :dir="editLang === 'ar' ? 'rtl' : 'ltr'" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-cyan-300 font-mono">
               </div>
             </div>
           </template>
@@ -687,6 +712,18 @@
                   <label class="block text-[11px] text-slate-400 mb-1">تفاصيل التنفيذ (<span x-text="editLang.toUpperCase()"></span>):</label>
                   <textarea rows="2" x-model="cms.texts[editLang].gallery['item' + gNum + '_desc']" class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-300"></textarea>
                 </div>
+
+                <!-- Badges on Gallery Image -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-slate-800">
+                  <div>
+                    <label class="block text-[10px] text-emerald-400 mb-1">الشارة العلوية على الصورة (Top Badge):</label>
+                    <input type="text" x-model="cms.imageBadges['gallery' + gNum + '_badge'][editLang]" :dir="editLang === 'ar' ? 'rtl' : 'ltr'" class="w-full px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white">
+                  </div>
+                  <div>
+                    <label class="block text-[10px] text-cyan-400 mb-1">الشريط السفلي للمواصفات/الموقع (Footer Tag):</label>
+                    <input type="text" x-model="cms.imageBadges['gallery' + gNum + '_footer'][editLang]" :dir="editLang === 'ar' ? 'rtl' : 'ltr'" class="w-full px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-cyan-300 font-mono">
+                  </div>
+                </div>
               </div>
             </template>
 
@@ -786,6 +823,22 @@
           texts: { 
             ar: { hero: {}, pillars: { p1: {}, p2: {}, p3: {} }, tech_standards: {}, comparison: {}, gallery: {}, contact: {} }, 
             en: { hero: {}, pillars: { p1: {}, p2: {}, p3: {} }, tech_standards: {}, comparison: {}, gallery: {}, contact: {} } 
+          },
+          imageBadges: {
+            heroTop: { ar: '', en: '' },
+            heroCornerTag: { ar: '', en: '' },
+            heroCornerName: { ar: '', en: '' },
+            pillar1: { ar: '', en: '' },
+            pillar2: { ar: '', en: '' },
+            pillar3: { ar: '', en: '' },
+            gallery1_badge: { ar: '', en: '' },
+            gallery1_footer: { ar: '', en: '' },
+            gallery2_badge: { ar: '', en: '' },
+            gallery2_footer: { ar: '', en: '' },
+            gallery3_badge: { ar: '', en: '' },
+            gallery3_footer: { ar: '', en: '' },
+            gallery4_badge: { ar: '', en: '' },
+            gallery4_footer: { ar: '', en: '' }
           }
         },
 
@@ -820,6 +873,18 @@
             const res = await fetch('/api/content');
             if (res.ok) {
               const data = await res.json();
+              if (!data.imageBadges) data.imageBadges = {};
+              const bKeys = [
+                'heroTop', 'heroCornerTag', 'heroCornerName',
+                'pillar1', 'pillar2', 'pillar3',
+                'gallery1_badge', 'gallery1_footer',
+                'gallery2_badge', 'gallery2_footer',
+                'gallery3_badge', 'gallery3_footer',
+                'gallery4_badge', 'gallery4_footer'
+              ];
+              bKeys.forEach(k => {
+                if (!data.imageBadges[k]) data.imageBadges[k] = { ar: '', en: '' };
+              });
               this.cms = data;
             }
           } catch (e) {

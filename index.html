@@ -287,7 +287,7 @@
               <!-- Top Badge -->
               <div class="absolute top-4 start-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/85 backdrop-blur-md border border-cyan-500/40 text-xs font-bold text-white shadow-lg">
                 <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
-                <span>Global Hi-Tech Certified Crew</span>
+                <span x-text="cms.imageBadges?.heroTop?.[lang] || 'Global Hi-Tech Certified Crew'"></span>
               </div>
 
               <!-- Hotspot 1: High Rejection -->
@@ -338,8 +338,8 @@
               <i class="fa-solid fa-shield-halved"></i>
             </div>
             <div>
-              <div class="text-xs text-slate-400">Official Distributor</div>
-              <div class="text-sm font-bold text-white">Global Hi-Tech Films</div>
+              <div class="text-xs text-slate-400" x-text="cms.imageBadges?.heroCornerTag?.[lang] || 'Official Distributor'"></div>
+              <div class="text-sm font-bold text-white" x-text="cms.imageBadges?.heroCornerName?.[lang] || 'Global Hi-Tech Films'"></div>
             </div>
           </div>
 
@@ -429,8 +429,7 @@
               <span x-text="t('pillars.p1.tag')"></span>
             </div>
             
-            <div class="absolute bottom-3 end-4 text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-950/80 text-cyan-400 border border-slate-700">
-              IRR: 88% | UV: 99.9%
+            <div class="absolute bottom-3 end-4 text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-950/80 text-cyan-400 border border-slate-700" x-text="cms.imageBadges?.pillar1?.[lang] || 'IRR: 88% | UV: 99.9%'">
             </div>
           </div>
 
@@ -482,8 +481,7 @@
               <span x-text="t('pillars.p2.tag')"></span>
             </div>
             
-            <div class="absolute bottom-3 end-4 text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-950/80 text-emerald-400 border border-slate-700">
-              8.5 Mil | Self-Healing TPU
+            <div class="absolute bottom-3 end-4 text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-950/80 text-emerald-400 border border-slate-700" x-text="cms.imageBadges?.pillar2?.[lang] || '8.5 Mil | Self-Healing TPU'">
             </div>
           </div>
 
@@ -535,8 +533,7 @@
               <span x-text="t('pillars.p3.tag')"></span>
             </div>
             
-            <div class="absolute bottom-3 end-4 text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-950/80 text-cyan-400 border border-slate-700">
-              Direct Wholesale Supply
+            <div class="absolute bottom-3 end-4 text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-950/80 text-cyan-400 border border-slate-700" x-text="cms.imageBadges?.pillar3?.[lang] || 'Direct Wholesale Supply'">
             </div>
           </div>
 
@@ -857,7 +854,7 @@
             
             <div class="absolute top-4 start-4 px-3 py-1 rounded-lg bg-emerald-500/20 backdrop-blur-md border border-emerald-500/40 text-emerald-300 text-xs font-bold">
               <i class="fa-solid fa-star me-1 text-yellow-400"></i>
-              <span x-text="t('gallery.item1_badge')"></span>
+              <span x-text="cms.imageBadges?.gallery1_badge?.[lang] || t('gallery.item1_badge')"></span>
             </div>
 
             <div class="absolute bottom-4 end-4 w-10 h-10 rounded-xl bg-slate-950/80 text-cyan-400 flex items-center justify-center border border-cyan-500/30 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
@@ -871,7 +868,7 @@
             </div>
             <div class="flex items-center gap-2 pt-3 border-t border-slate-800 text-xs text-cyan-400 font-mono">
               <i class="fa-solid fa-location-dot"></i>
-              <span>Commercial Plaza | Le Bistro</span>
+              <span x-text="cms.imageBadges?.gallery1_footer?.[lang] || 'Commercial Plaza | Le Bistro'"></span>
             </div>
           </div>
         </div>
@@ -883,7 +880,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
             
             <div class="absolute top-4 start-4 px-3 py-1 rounded-lg bg-cyan-500/20 backdrop-blur-md border border-cyan-500/40 text-cyan-300 text-xs font-bold">
-              <span>Surface Shield TPU</span>
+              <span x-text="cms.imageBadges?.gallery2_badge?.[lang] || 'Surface Shield TPU'"></span>
             </div>
 
             <div class="absolute bottom-4 end-4 w-10 h-10 rounded-xl bg-slate-950/80 text-cyan-400 flex items-center justify-center border border-cyan-500/30 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
@@ -897,7 +894,7 @@
             </div>
             <div class="flex items-center gap-2 pt-3 border-t border-slate-800 text-xs text-emerald-400 font-mono">
               <i class="fa-solid fa-shield-cat"></i>
-              <span>Acid-Proof | 8.5 Mil TPU</span>
+              <span x-text="cms.imageBadges?.gallery2_footer?.[lang] || 'Acid-Proof | 8.5 Mil TPU'"></span>
             </div>
           </div>
         </div>
@@ -909,7 +906,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
             
             <div class="absolute top-4 start-4 px-3 py-1 rounded-lg bg-cyan-500/20 backdrop-blur-md border border-cyan-500/40 text-cyan-300 text-xs font-bold">
-              <span>Nano-Ceramic Architectural</span>
+              <span x-text="cms.imageBadges?.gallery3_badge?.[lang] || 'Nano-Ceramic Architectural'"></span>
             </div>
 
             <div class="absolute bottom-4 end-4 w-10 h-10 rounded-xl bg-slate-950/80 text-cyan-400 flex items-center justify-center border border-cyan-500/30 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
@@ -923,7 +920,7 @@
             </div>
             <div class="flex items-center gap-2 pt-3 border-t border-slate-800 text-xs text-cyan-400 font-mono">
               <i class="fa-solid fa-temperature-arrow-down"></i>
-              <span>-14°C Temp Drop | 99% UV Block</span>
+              <span x-text="cms.imageBadges?.gallery3_footer?.[lang] || '-14°C Temp Drop | 99% UV Block'"></span>
             </div>
           </div>
         </div>
@@ -935,7 +932,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
             
             <div class="absolute top-4 start-4 px-3 py-1 rounded-lg bg-cyan-500/20 backdrop-blur-md border border-cyan-500/40 text-cyan-300 text-xs font-bold">
-              <span>Self-Healing PPF</span>
+              <span x-text="cms.imageBadges?.gallery4_badge?.[lang] || 'Self-Healing PPF'"></span>
             </div>
 
             <div class="absolute bottom-4 end-4 w-10 h-10 rounded-xl bg-slate-950/80 text-cyan-400 flex items-center justify-center border border-cyan-500/30 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
@@ -949,7 +946,7 @@
             </div>
             <div class="flex items-center gap-2 pt-3 border-t border-slate-800 text-xs text-cyan-400 font-mono">
               <i class="fa-solid fa-droplet"></i>
-              <span>Super-Hydrophobic | 10 Mil TPU</span>
+              <span x-text="cms.imageBadges?.gallery4_footer?.[lang] || 'Super-Hydrophobic | 10 Mil TPU'"></span>
             </div>
           </div>
         </div>

@@ -106,6 +106,18 @@ async function runSuite() {
     assert(content.texts.ar.hero && content.texts.ar.pillars && content.texts.ar.tech_standards && content.texts.ar.comparison, 'All AR sections present in CMS');
     assert(content.texts.en.hero && content.texts.en.pillars && content.texts.en.tech_standards && content.texts.en.comparison, 'All EN sections present in CMS');
 
+    // Image Badges
+    const expectedBadgeKeys = [
+      'heroTop', 'heroCornerTag', 'heroCornerName',
+      'pillar1', 'pillar2', 'pillar3',
+      'gallery1_badge', 'gallery1_footer',
+      'gallery2_badge', 'gallery2_footer',
+      'gallery3_badge', 'gallery3_footer',
+      'gallery4_badge', 'gallery4_footer'
+    ];
+    const hasAllBadges = expectedBadgeKeys.every(k => content.imageBadges && content.imageBadges[k] && content.imageBadges[k].ar && content.imageBadges[k].en);
+    assert(hasAllBadges, 'All 14 Image Badges present in CMS with AR & EN translations');
+
     // -------------------------------------------------------------------------
     // TEST 3: LIVE CMS PERSISTENCE & MUTATION (POST /api/content)
     // -------------------------------------------------------------------------
@@ -117,6 +129,9 @@ async function runSuite() {
     modifiedContent.visibility.topbar = false;    // Turn off topbar
     modifiedContent.contacts.phone = '01099887766'; // Change phone
     modifiedContent.texts.ar.hero.title_p1 = 'حلول بروتيرم الهندسية المعتمدة'; // Change title
+    if (modifiedContent.imageBadges && modifiedContent.imageBadges.heroTop) {
+      modifiedContent.imageBadges.heroTop.ar = 'طاقم معتمد ومحدث للاختبار';
+    }
     
     const postPayload = JSON.stringify(modifiedContent);
     const postRes = await request({
@@ -141,6 +156,7 @@ async function runSuite() {
     assert(verifiedContent.visibility.topbar === false, 'Mutation persisted: visibility.topbar is now false');
     assert(verifiedContent.contacts.phone === '01099887766', 'Mutation persisted: contacts.phone is 01099887766');
     assert(verifiedContent.texts.ar.hero.title_p1 === 'حلول بروتيرم الهندسية المعتمدة', 'Mutation persisted: AR title updated');
+    assert(verifiedContent.imageBadges && verifiedContent.imageBadges.heroTop.ar === 'طاقم معتمد ومحدث للاختبار', 'Mutation persisted: imageBadges.heroTop.ar updated');
 
     // -------------------------------------------------------------------------
     // TEST 4: FACTORY RESET (POST /api/reset)
@@ -163,6 +179,7 @@ async function runSuite() {
     res = await request({ host: 'localhost', port: PORT, path: '/api/content', method: 'GET' });
     const postResetContent = JSON.parse(res.body);
     assert(postResetContent.contacts.phone === '01010010030', 'GET /api/content confirms factory defaults restored');
+    assert(postResetContent.imageBadges && postResetContent.imageBadges.heroTop.ar === 'طاقم هندسي معتمد من Global Hi-Tech', 'Factory reset restores imageBadges defaults');
 
     // -------------------------------------------------------------------------
     // TEST 5: NO CONTACT FORM IN INDEX.HTML
@@ -198,6 +215,8 @@ async function runSuite() {
     assert(adminHtml.includes("activeTab = 'tech'"), 'Tech standards & comparison tab exists');
     assert(adminHtml.includes("activeTab = 'media'"), 'Media gallery editor tab exists');
     assert(adminHtml.includes("activeTab = 'buttons'"), 'Buttons & CTAs editor tab exists');
+    assert(adminHtml.includes('cms.imageBadges.heroTop[editLang]'), 'Admin dashboard includes image badges bindings for Hero');
+    assert(adminHtml.includes("cms.imageBadges['gallery' + gNum + '_badge'][editLang]"), 'Admin dashboard includes image badges bindings for Gallery');
     assert(adminHtml.includes('saveContent()') && adminHtml.includes('resetToDefaults()'), 'Save and Factory Reset methods bound');
 
     console.log('\n====================================================');

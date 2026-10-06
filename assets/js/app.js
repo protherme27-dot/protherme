@@ -69,7 +69,8 @@ document.addEventListener('alpine:init', () => {
         stat3: { num: '10-25', label_ar: 'سنوات ضمان دولي معتمد', label_en: 'Years Certified Global Warranty' },
         stat4: { num: '0%', label_ar: 'تشويش إشارات الاتصال و 5G', label_en: 'Zero 5G & Signal Interference' }
       },
-      texts: {}
+      texts: {},
+      imageBadges: {}
     },
 
     async init() {
