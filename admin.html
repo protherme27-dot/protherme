@@ -384,30 +384,42 @@
                 <textarea rows="2" x-model="cms.texts[editLang].contact.subtitle" :dir="editLang === 'ar' ? 'rtl' : 'ltr'" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white"></textarea>
               </div>
 
-              <!-- 3 Contact Cards Texts -->
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <!-- 4 Contact Cards Texts -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2">
                 <!-- Phone Card -->
                 <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                   <div class="text-xs font-bold text-cyan-400">بطاقة الهاتف المباشر</div>
+                  <input type="text" x-model="cms.texts[editLang].contact.call_badge" placeholder="الشارة العلوية (Badge)" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-cyan-300">
                   <input type="text" x-model="cms.texts[editLang].contact.call_title" placeholder="عنوان البطاقة" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-white">
                   <textarea rows="2" x-model="cms.texts[editLang].contact.call_desc" placeholder="الوصف" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-slate-300"></textarea>
-                  <input type="text" x-model="cms.texts[editLang].contact.call_btn" placeholder="نص زر الاتصال" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-cyan-300">
+                  <input type="text" x-model="cms.texts[editLang].contact.call_btn" placeholder="نص زر الاتصال" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-cyan-300 font-bold">
                 </div>
 
                 <!-- WhatsApp Card -->
                 <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                   <div class="text-xs font-bold text-emerald-400">بطاقة الواتساب</div>
+                  <input type="text" x-model="cms.texts[editLang].contact.wa_badge" placeholder="الشارة العلوية (Badge)" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-emerald-300">
                   <input type="text" x-model="cms.texts[editLang].contact.wa_title" placeholder="عنوان البطاقة" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-white">
                   <textarea rows="2" x-model="cms.texts[editLang].contact.wa_desc" placeholder="الوصف" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-slate-300"></textarea>
-                  <input type="text" x-model="cms.texts[editLang].contact.wa_btn" placeholder="نص زر الواتساب" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-emerald-300">
+                  <input type="text" x-model="cms.texts[editLang].contact.wa_btn" placeholder="نص زر الواتساب" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-emerald-300 font-bold">
                 </div>
 
                 <!-- Email Card -->
                 <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                   <div class="text-xs font-bold text-cyan-400">بطاقة البريد الإلكتروني</div>
+                  <input type="text" x-model="cms.texts[editLang].contact.email_badge" placeholder="الشارة العلوية (Badge)" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-cyan-300">
                   <input type="text" x-model="cms.texts[editLang].contact.email_title" placeholder="عنوان البطاقة" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-white">
                   <textarea rows="2" x-model="cms.texts[editLang].contact.email_desc" placeholder="الوصف" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-slate-300"></textarea>
-                  <input type="text" x-model="cms.texts[editLang].contact.email_btn" placeholder="نص زر الإيميل" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-cyan-300">
+                  <input type="text" x-model="cms.texts[editLang].contact.email_btn" placeholder="نص زر الإيميل" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-cyan-300 font-bold">
+                </div>
+
+                <!-- Office / Hours Card -->
+                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                  <div class="text-xs font-bold text-amber-400">بطاقة المقر والاعتماد</div>
+                  <input type="text" x-model="cms.texts[editLang].contact.hours_badge" placeholder="الشارة العلوية (Badge)" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-amber-300">
+                  <input type="text" x-model="cms.texts[editLang].contact.hours_title" placeholder="عنوان البطاقة" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-white">
+                  <textarea rows="2" x-model="cms.texts[editLang].contact.hours_desc" placeholder="الوصف" class="w-full px-2 py-1.5 rounded bg-slate-900 border border-slate-700 text-xs text-slate-300"></textarea>
+                  <div class="text-[11px] text-slate-500 pt-1 font-mono">يتم عرض أوقات العمل المدخلة بأعلى التاب تلقائياً</div>
                 </div>
               </div>
             </div>
@@ -489,20 +501,52 @@
               </div>
             </div>
 
-            <!-- Hero Visual Image Path -->
-            <div class="pt-4 border-t border-slate-800">
-              <label class="block text-xs font-bold text-slate-300 mb-2">مسار صورة الهيرو الرئيسية (Hero Visual Path):</label>
-              <div class="flex gap-4 items-center">
-                <div class="w-16 h-16 rounded-xl overflow-hidden bg-slate-900 border border-slate-700 shrink-0">
+            <!-- Brand Logo Management (شعار الشركة) -->
+            <div class="pt-4 border-t border-slate-800 space-y-3">
+              <label class="block text-xs font-bold text-slate-300">شعار بروتيرم الرسمي (Brand Logo):</label>
+              <div class="flex flex-wrap gap-4 items-center">
+                <div class="w-20 h-14 rounded-xl bg-white p-1 border border-slate-700 flex items-center justify-center shrink-0 shadow-md">
+                  <img :src="cms.images.logo || 'assets/images/protherme-logo.jpg'" alt="Brand Logo Preview" class="max-h-full max-w-full object-contain">
+                </div>
+                <div class="flex-1 min-w-[200px] flex gap-2 items-center">
+                  <input 
+                    type="text" 
+                    x-model="cms.images.logo" 
+                    dir="ltr" 
+                    placeholder="assets/images/protherme-logo.jpg"
+                    class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs sm:text-sm focus:outline-none focus:border-cyan-400">
+                  <label class="cursor-pointer px-3.5 py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs font-bold inline-flex items-center gap-1.5 shrink-0 transition-colors" title="رفع شعار من جهازك">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <span class="hidden sm:inline">رفع شعار</span>
+                    <input type="file" accept="image/*" class="hidden" @change="handleFileUpload($event, 'logo')">
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Visual Image Path with Direct Upload -->
+            <div class="pt-4 border-t border-slate-800 space-y-3">
+              <label class="block text-xs font-bold text-slate-300">مسار صورة الهيرو الرئيسية (Hero Visual Path):</label>
+              <div class="flex flex-wrap gap-4 items-center">
+                <div class="w-20 h-16 rounded-xl overflow-hidden bg-slate-900 border border-slate-700 shrink-0 shadow-md">
                   <img :src="cms.images.heroVisual" alt="Hero Preview" class="w-full h-full object-cover">
                 </div>
-                <div class="flex-1">
+                <div class="flex-1 min-w-[200px] flex gap-2 items-center">
                   <input 
                     type="text" 
                     x-model="cms.images.heroVisual" 
                     dir="ltr" 
-                    class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-sm focus:outline-none focus:border-cyan-400">
-                  <div class="text-[11px] text-slate-400 mt-1">المسار الافتراضي: <code class="text-cyan-400 font-mono">assets/images/installation-site-real.jpg</code></div>
+                    class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs sm:text-sm focus:outline-none focus:border-cyan-400">
+                  <label class="cursor-pointer px-3.5 py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs font-bold inline-flex items-center gap-1.5 shrink-0 transition-colors" title="رفع صورة من جهازك">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <span class="hidden sm:inline">رفع صورة</span>
+                    <input type="file" accept="image/*" class="hidden" @change="handleFileUpload($event, 'heroVisual')">
+                  </label>
+                </div>
+              </div>
+              <div class="text-[11px] text-slate-400">يمكنك كتابة مسار محلي أو رفع صورة مباشرة من جهازك أو هاتفك.</div>
+            </div>
+
             <!-- Hero Image Badges (الشارات الموضوعة فوق صورة الهيرو) -->
             <div class="pt-4 border-t border-slate-800 space-y-3">
               <div class="flex items-center gap-2 text-cyan-400 font-bold text-xs sm:text-sm">
@@ -525,6 +569,7 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -580,18 +625,29 @@
                 </div>
               </div>
 
-              <!-- Specs & Image -->
+              <!-- Specs & CTA Button -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div>
                   <label class="block text-[11px] font-bold text-slate-300 mb-1">المواصفات الفنية (Specs Bar):</label>
                   <input type="text" x-model="cms.texts[editLang].pillars[pillarKey].specs" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-cyan-300 font-mono">
                 </div>
                 <div>
-                  <label class="block text-[11px] font-bold text-slate-300 mb-1">مسار صورة الركيزة:</label>
-                  <div class="flex gap-2 items-center">
-                    <img :src="cms.images['pillar' + (idx + 1)]" class="w-8 h-8 rounded object-cover border border-slate-700 shrink-0">
-                    <input type="text" x-model="cms.images['pillar' + (idx + 1)]" dir="ltr" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white font-mono">
-                  </div>
+                  <label class="block text-[11px] font-bold text-slate-300 mb-1">نص زر الإجراء (Pillar CTA Button):</label>
+                  <input type="text" x-model="cms.texts[editLang].pillars[pillarKey].cta" :dir="editLang === 'ar' ? 'rtl' : 'ltr'" placeholder="تواصل للاستشارة" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
+                </div>
+              </div>
+
+              <!-- Image & Direct Upload -->
+              <div class="pt-2">
+                <label class="block text-[11px] font-bold text-slate-300 mb-1">صورة الركيزة (Pillar Image):</label>
+                <div class="flex gap-2 items-center">
+                  <img :src="cms.images['pillar' + (idx + 1)]" class="w-10 h-10 rounded-lg object-cover border border-slate-700 shrink-0">
+                  <input type="text" x-model="cms.images['pillar' + (idx + 1)]" dir="ltr" class="flex-1 px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white font-mono">
+                  <label class="cursor-pointer px-3 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs font-bold inline-flex items-center gap-1.5 shrink-0 transition-colors" title="رفع صورة من جهازك">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <span class="hidden sm:inline">رفع صورة</span>
+                    <input type="file" accept="image/*" class="hidden" @change="handleFileUpload($event, 'pillar' + (idx + 1))">
+                  </label>
                 </div>
               </div>
 
@@ -646,6 +702,41 @@
             </div>
           </div>
 
+          <!-- Comparison Table Section Headers & Column Headers -->
+          <div class="pt-4 border-t border-slate-800 space-y-4">
+            <h4 class="text-sm font-bold text-cyan-400">عناوين ومعايير جدول المقارنة الفنية (بروتيرم مقابل السوق):</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-300 mb-1">عنوان قسم المقارنة:</label>
+                <input type="text" x-model="cms.texts[editLang].comparison.title" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-300 mb-1">الوسم العلوي (Tag):</label>
+                <input type="text" x-model="cms.texts[editLang].comparison.tag" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-cyan-300">
+              </div>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-300 mb-1">الوصف الفرعي للمقارنة:</label>
+              <textarea rows="2" x-model="cms.texts[editLang].comparison.subtitle" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white"></textarea>
+            </div>
+
+            <!-- Table Headers -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div>
+                <label class="block text-[10px] text-slate-400 mb-1">عنوان عمود المعيار:</label>
+                <input type="text" x-model="cms.texts[editLang].comparison.th_feature" class="w-full px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white">
+              </div>
+              <div>
+                <label class="block text-[10px] text-cyan-400 mb-1">عنوان عمود بروتيرم:</label>
+                <input type="text" x-model="cms.texts[editLang].comparison.th_pro" class="w-full px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-xs text-cyan-300">
+              </div>
+              <div>
+                <label class="block text-[10px] text-slate-400 mb-1">عنوان عمود الأفلام التجارية:</label>
+                <input type="text" x-model="cms.texts[editLang].comparison.th_market" class="w-full px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-xs text-slate-400">
+              </div>
+            </div>
+          </div>
+
           <!-- Comparison Table Rows -->
           <div class="pt-4 border-t border-slate-800 space-y-4">
             <h4 class="text-sm font-bold text-cyan-400">صفوف جدول المقارنة (بروتيرم مقابل السوق):</h4>
@@ -679,10 +770,28 @@
         <div x-show="activeTab === 'media'" class="space-y-6">
           <div class="border-b border-slate-800 pb-4">
             <h3 class="text-xl font-black text-white">معرض الصور والمشاريع الميدانية</h3>
-            <p class="text-xs text-slate-400 mt-1">تعديل مسارات الصور وعناوين ونصوص المشاريع في المعرض الحي</p>
+            <p class="text-xs text-slate-400 mt-1">تعديل مسارات الصور وعناوين ونصوص المشاريع في المعرض الحي ورفع صور جديدة</p>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Gallery Section Titles -->
+          <div class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-300 mb-1">عنوان قسم المعرض:</label>
+                <input type="text" x-model="cms.texts[editLang].gallery.title" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-300 mb-1">الوسم العلوي (Tag):</label>
+                <input type="text" x-model="cms.texts[editLang].gallery.tag" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-cyan-300">
+              </div>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-300 mb-1">الوصف الفرعي للمعرض:</label>
+              <textarea rows="2" x-model="cms.texts[editLang].gallery.subtitle" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white"></textarea>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
             
             <!-- Gallery Items 1 - 4 -->
             <template x-for="(gNum, gIdx) in ['1', '2', '3', '4']" :key="gNum">
@@ -693,14 +802,21 @@
                 </div>
                 
                 <!-- Live Preview -->
-                <div class="h-32 rounded-xl overflow-hidden bg-slate-900 border border-slate-800">
+                <div class="h-36 rounded-xl overflow-hidden bg-slate-900 border border-slate-800 shadow-inner">
                   <img :src="cms.images['gallery' + gNum]" :alt="'Project ' + gNum" class="w-full h-full object-cover">
                 </div>
 
-                <!-- Image Path -->
+                <!-- Image Path & Direct Upload -->
                 <div>
                   <label class="block text-[11px] text-slate-400 mb-1">مسار الصورة (Image Path):</label>
-                  <input type="text" x-model="cms.images['gallery' + gNum]" dir="ltr" class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white font-mono">
+                  <div class="flex gap-2 items-center">
+                    <input type="text" x-model="cms.images['gallery' + gNum]" dir="ltr" class="flex-1 px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white font-mono">
+                    <label class="cursor-pointer px-2.5 py-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs font-bold inline-flex items-center gap-1.5 shrink-0 transition-colors" title="رفع صورة من جهازك">
+                      <i class="fa-solid fa-cloud-arrow-up"></i>
+                      <span class="hidden sm:inline">رفع صورة</span>
+                      <input type="file" accept="image/*" class="hidden" @change="handleFileUpload($event, 'gallery' + gNum)">
+                    </label>
+                  </div>
                 </div>
 
                 <!-- Title & Description in Current Edit Language -->
@@ -885,11 +1001,72 @@
               bKeys.forEach(k => {
                 if (!data.imageBadges[k]) data.imageBadges[k] = { ar: '', en: '' };
               });
+
+              // Ensure nested dictionaries exist to prevent any Alpine binding errors
+              if (!data.texts) data.texts = { ar: {}, en: {} };
+              ['ar', 'en'].forEach(l => {
+                if (!data.texts[l]) data.texts[l] = {};
+                if (!data.texts[l].hero) data.texts[l].hero = {};
+                if (!data.texts[l].pillars) data.texts[l].pillars = { p1: {}, p2: {}, p3: {} };
+                ['p1', 'p2', 'p3'].forEach(p => {
+                  if (!data.texts[l].pillars[p]) data.texts[l].pillars[p] = {};
+                });
+                if (!data.texts[l].tech_standards) data.texts[l].tech_standards = {};
+                if (!data.texts[l].comparison) data.texts[l].comparison = {};
+                if (!data.texts[l].gallery) data.texts[l].gallery = {};
+                if (!data.texts[l].contact) data.texts[l].contact = {};
+              });
+              if (!data.images) data.images = {};
+              if (!data.buttons) data.buttons = {};
+              if (!data.heroStats) data.heroStats = {};
+              if (!data.contacts) data.contacts = { hours: {} };
+              if (!data.contacts.hours) data.contacts.hours = {};
+
               this.cms = data;
             }
           } catch (e) {
             console.error('Failed to load content from API:', e);
           }
+        },
+
+        async handleFileUpload(event, imageKey) {
+          const file = event.target.files && event.target.files[0];
+          if (!file) return;
+
+          if (file.size > 15 * 1024 * 1024) {
+            this.showToast('خطأ في حجم الصورة', 'الحد الأقصى المسموح به لحجم الصورة هو 15 ميجابايت.');
+            event.target.value = '';
+            return;
+          }
+
+          this.showToast('جاري رفع الصورة...', 'يتم الآن رفع الصورة وحفظها على السيرفر...');
+          const reader = new FileReader();
+          reader.onload = async (e) => {
+            try {
+              const base64Data = e.target.result;
+              const res = await fetch('/api/upload', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  filename: file.name,
+                  data: base64Data
+                })
+              });
+              const result = await res.json();
+              if (res.ok && result.success) {
+                this.cms.images[imageKey] = result.url;
+                this.showToast('تم رفع الصورة بنجاح!', `تم حفظ الصورة وتعيين مسارها: ${result.url}`);
+              } else {
+                this.showToast('فشل الرفع', result.error || 'تعذر حفظ الصورة على الخادم.');
+              }
+            } catch (err) {
+              console.error('Upload failed:', err);
+              this.showToast('خطأ في الاتصال', 'تعذر إرسال الصورة إلى الخادم.');
+            } finally {
+              event.target.value = '';
+            }
+          };
+          reader.readAsDataURL(file);
         },
 
         async saveContent() {

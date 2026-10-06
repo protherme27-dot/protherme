@@ -93,6 +93,57 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // --- API: POST /api/upload (Direct Image Upload from Manager Device) ---
+  if ((subPath === '/api/upload' || urlPath === '/api/upload') && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', () => {
+      try {
+        const parsed = JSON.parse(body);
+        if (!parsed.data || !parsed.filename) {
+          res.writeHead(400, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Missing data or filename' }));
+          return;
+        }
+
+        // Extract base64 payload if data URI format
+        let base64Data = parsed.data;
+        const matches = parsed.data.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+        if (matches && matches.length === 3) {
+          base64Data = matches[2];
+        }
+
+        const buffer = Buffer.from(base64Data, 'base64');
+        const ext = path.extname(parsed.filename).toLowerCase() || '.jpg';
+        const cleanName = 'upload-' + Date.now() + ext;
+        const uploadDir = path.join(BASE_DIR, 'assets', 'images');
+
+        if (!fs.existsSync(uploadDir)) {
+          fs.mkdirSync(uploadDir, { recursive: true });
+        }
+
+        const destPath = path.join(uploadDir, cleanName);
+        fs.writeFile(destPath, buffer, (err) => {
+          if (err) {
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Failed to write uploaded image' }));
+            return;
+          }
+          const publicUrl = 'assets/images/' + cleanName;
+          res.writeHead(200, {
+            'Content-Type': 'application/json; charset=utf-8',
+            'Access-Control-Allow-Origin': '*'
+          });
+          res.end(JSON.stringify({ success: true, url: publicUrl, filename: cleanName }));
+        });
+      } catch (err) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Invalid upload payload' }));
+      }
+    });
+    return;
+  }
+
   // Handle CORS preflight
   if (req.method === 'OPTIONS') {
     res.writeHead(204, {

@@ -219,6 +219,91 @@ async function runSuite() {
     assert(adminHtml.includes("cms.imageBadges['gallery' + gNum + '_badge'][editLang]"), 'Admin dashboard includes image badges bindings for Gallery');
     assert(adminHtml.includes('saveContent()') && adminHtml.includes('resetToDefaults()'), 'Save and Factory Reset methods bound');
 
+    // -------------------------------------------------------------------------
+    // TEST 7: DIRECT IMAGE UPLOAD API (POST /api/upload)
+    // -------------------------------------------------------------------------
+    console.log('\n--- 7. Testing Direct Device Image Upload API ---');
+    // Minimal 1x1 transparent GIF base64
+    const sampleBase64 = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+    const uploadPayload = JSON.stringify({
+      filename: 'test-upload-sample.gif',
+      data: sampleBase64
+    });
+
+    const uploadRes = await request({
+      host: 'localhost',
+      port: PORT,
+      path: '/api/upload',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(uploadPayload)
+      }
+    }, uploadPayload);
+
+    assert(uploadRes.statusCode === 200, 'POST /api/upload returns HTTP 200 OK');
+    const uploadJson = JSON.parse(uploadRes.body);
+    assert(uploadJson.success === true && uploadJson.url.startsWith('assets/images/upload-'), 'Upload returns success: true and assets/images/ public URL');
+
+    // Verify uploaded file actually exists on disk
+    const uploadedFilePath = path.join(__dirname, uploadJson.url);
+    const fileExistsOnDisk = fs.existsSync(uploadedFilePath);
+    assert(fileExistsOnDisk, 'Uploaded image file was successfully created on physical server disk');
+    
+    // Clean up test file
+    if (fileExistsOnDisk) {
+      try { fs.unlinkSync(uploadedFilePath); } catch (e) {}
+    }
+
+    // -------------------------------------------------------------------------
+    // TEST 8: ADMIN DASHBOARD SIBLING ARCHITECTURE (NO NESTED TABS)
+    // -------------------------------------------------------------------------
+    console.log('\n--- 8. Verifying Admin DOM Tab Sibling Structure ---');
+    const lines = adminHtml.split('\n');
+    let depth = 0;
+    const tabDepths = {};
+    const tabsList = ['visibility', 'contacts', 'hero', 'pillars', 'tech', 'media', 'buttons'];
+
+    lines.forEach(line => {
+      tabsList.forEach(t => {
+        if (line.includes(`activeTab === '${t}'`) && line.includes('<div')) {
+          tabDepths[t] = depth;
+        }
+      });
+      const divOpens = (line.match(/<div(\s|>)/gi) || []).length;
+      const divCloses = (line.match(/<\/div>/gi) || []).length;
+      depth += (divOpens - divCloses);
+    });
+
+    assert(depth === 0, 'Final Admin DOM div balance is 0 (all HTML tags properly closed)');
+    const allTabsFound = tabsList.every(t => tabDepths[t] !== undefined);
+    assert(allTabsFound, 'All 7 admin tab panels located in DOM');
+    const allSiblings = tabsList.every(t => tabDepths[t] === tabDepths['visibility']);
+    assert(allSiblings, 'CRITICAL: All 7 admin tabs are siblings at the exact same DOM depth (Tabs 4-7 are NOT trapped in Hero tab)');
+
+    // -------------------------------------------------------------------------
+    // TEST 9: BRAND LOGO & DIRECT UPLOAD UI CONTROLS
+    // -------------------------------------------------------------------------
+    console.log('\n--- 9. Verifying Brand Logo & Image Upload UI Controls ---');
+    assert(adminHtml.includes('cms.images.logo'), 'Brand Logo path input present in Admin Dashboard');
+    assert(adminHtml.includes("handleFileUpload($event, 'logo')"), 'Direct upload button for Logo present');
+    assert(adminHtml.includes("handleFileUpload($event, 'heroVisual')"), 'Direct upload button for Hero Visual present');
+    assert(adminHtml.includes("handleFileUpload($event, 'pillar' + (idx + 1))"), 'Direct upload button for Pillars present');
+    assert(adminHtml.includes("handleFileUpload($event, 'gallery' + gNum)"), 'Direct upload button for Gallery items present');
+    assert(adminHtml.includes('handleFileUpload(event, imageKey)'), 'handleFileUpload method implemented in Alpine script');
+
+    // -------------------------------------------------------------------------
+    // TEST 10: PILLAR CTA & COMPARISON & GALLERY HEADERS
+    // -------------------------------------------------------------------------
+    console.log('\n--- 10. Verifying Pillar CTA, Comparison, and Gallery Section Headers ---');
+    assert(adminHtml.includes('cms.texts[editLang].pillars[pillarKey].cta'), 'Pillar CTA button text input present in Admin Dashboard');
+    assert(adminHtml.includes('cms.texts[editLang].comparison.title'), 'Comparison table title input present in Admin Dashboard');
+    assert(adminHtml.includes('cms.texts[editLang].comparison.th_feature'), 'Comparison table feature column header input present');
+    assert(adminHtml.includes('cms.texts[editLang].comparison.th_pro'), 'Comparison table ProTherme column header input present');
+    assert(adminHtml.includes('cms.texts[editLang].comparison.th_market'), 'Comparison table Market column header input present');
+    assert(adminHtml.includes('cms.texts[editLang].gallery.title'), 'Gallery section title input present in Admin Dashboard');
+    assert(adminHtml.includes('cms.texts[editLang].contact.call_badge'), 'Contact card badge inputs present in Admin Dashboard');
+
     console.log('\n====================================================');
     console.log(`🏁 AUDIT SUITE FINISHED: ${passed} PASSED, ${failed} FAILED`);
     console.log('====================================================');
