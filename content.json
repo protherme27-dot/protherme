@@ -3,7 +3,7 @@
     "topbar": true,
     "heroBadge": true,
     "heroStats": true,
-    "trustBar": false,
+    "trustBar": true,
     "pillar1": true,
     "pillar2": true,
     "pillar3": true,
