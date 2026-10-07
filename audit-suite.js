@@ -200,6 +200,12 @@ async function runSuite() {
       assert(hasPhone && hasWa && hasEmail, 'Direct channels (Phone, WhatsApp, Email) are bound to CMS contacts');
     }
 
+    // Verify Simulator is removed from index.html
+    const hasSimulatorSection = /id="simulator"/i.test(indexHtml);
+    const hasSimulatorNav = /scrollTo\('simulator'\)/i.test(indexHtml);
+    assert(!hasSimulatorSection, 'CRITICAL: Interactive performance simulator section (#simulator) completely removed from index.html');
+    assert(!hasSimulatorNav, 'CRITICAL: Simulator nav buttons completely removed from desktop and mobile menus in index.html');
+
     // -------------------------------------------------------------------------
     // TEST 6: ADMIN DASHBOARD UI INTEGRITY
     // -------------------------------------------------------------------------
